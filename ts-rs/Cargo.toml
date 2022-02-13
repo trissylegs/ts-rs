@@ -12,10 +12,13 @@ categories = ["development-tools::ffi", "development-tools::build-utils", "wasm"
 readme = "../README.md"
 
 [features]
+time-impl = ["time"]
+url-impl = ["url"]
 chrono-impl = ["chrono"]
 bigdecimal-impl = ["bigdecimal"]
 uuid-impl = ["uuid"]
 bytes-impl = ["bytes"]
+serde-json-impl = ["serde_json"]
 serde-compat = ["ts-rs-macros/serde-compat"]
 format = ["dprint-plugin-typescript"]
 default = ["serde-compat"]
@@ -23,12 +26,18 @@ default = ["serde-compat"]
 [dev-dependencies]
 serde = { version = "1.0", features = ["derive"] }
 chrono = { version = "0.4", features = ["serde"] }
+time = { version = "0.2", features = ["serde"]}
+url = { version = "2", features = ["serde"] }
 
 [dependencies]
 ts-rs-macros = { version = "6.1.2", path = "../macros" }
 dprint-plugin-typescript = { version = "0.43", optional = true }
 chrono = { version = "0.4.19", optional = true }
 bigdecimal = { version = ">=0.0.13, < 0.4.0", features = ["serde"], optional = true }
+time = { version = "0.2", optional = true, features = ["std"] }
+url = { version = "2", optional = true }
+serde_json  = { version = "1", optional = true }
+
 uuid = { version = "0.8.2", optional = true }
 bytes = { version = "1.0", optional = true }
 thiserror = "1"

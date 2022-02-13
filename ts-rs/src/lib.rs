@@ -130,6 +130,13 @@ pub use crate::export::ExportError;
 
 #[cfg(feature = "chrono-impl")]
 mod chrono;
+#[cfg(feature = "time-impl")]
+mod time;
+#[cfg(feature = "url-impl")]
+mod url;
+#[cfg(feature = "serde-json-impl")]
+mod serde_json;
+
 mod export;
 
 /// A type which can be represented in TypeScript.  
